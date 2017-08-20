@@ -1,6 +1,7 @@
 package com.mamapps.dicer;
 
 import android.media.Image;
+import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -26,8 +27,11 @@ public class MainActivity extends AppCompatActivity {
                 R.drawable.dice5,
                 R.drawable.dice6
         };
+
         final ImageView leftDice = (ImageView) findViewById(R.id.image_leftDice);
         final ImageView rightDice = (ImageView) findViewById(R.id.image_rightDice);
+
+        final MediaPlayer mp = MediaPlayer.create(this,R.raw.dice);
 
         rollButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -40,6 +44,8 @@ public class MainActivity extends AppCompatActivity {
 
                 leftDice.setImageResource(diceArray[num]);
                 rightDice.setImageResource(diceArray[num2]);
+
+                mp.start();
 
             }
         });
